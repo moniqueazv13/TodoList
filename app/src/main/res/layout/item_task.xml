@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp"
+    android:id="@+id/item_task"
     android:gravity="center_vertical">
 
     <CheckBox

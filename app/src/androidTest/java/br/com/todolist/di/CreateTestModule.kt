@@ -40,8 +40,7 @@ fun createTestModules(context: Context) = listOf(
                 getAllTasksUseCase = get(),
                 addTaskUseCase = get(),
                 updateTaskUseCase = get(),
-                deleteTaskUseCase = get(),
-                changeTaskUseCase = get()
+                deleteTaskUseCase = get()
             )
         }
     }

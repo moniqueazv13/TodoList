@@ -53,7 +53,7 @@ class TaskListFragmentTest : KoinTest {
 
         onView(withId(R.id.fab_add_task)).perform(click())
 
-        onView(withId(R.id.edit_text_task_title)).perform(typeText(taskTitle))
+        onView(withId(R.id.edit_text_task_title)).perform(typeText(taskTitle), closeSoftKeyboard())
 
         onView(withText("ADICIONAR")).perform(click())
 
@@ -105,6 +105,30 @@ class TaskListFragmentTest : KoinTest {
         Thread.sleep(500)
 
         onView(withId(R.id.checkbox_completed)).check(matches(isChecked()))
+    }
+
+    @Test
+    fun changeNameTask_updatesTaskAppearance() {
+        val taskTitle = "Estudar testes de UI"
+
+        onView(withId(R.id.fab_add_task)).perform(click())
+        onView(withId(R.id.edit_text_task_title)).perform(typeText(taskTitle), closeSoftKeyboard())
+        onView(withText("ADICIONAR")).perform(click())
+        onView(withId(R.id.recycler_view_tasks))
+            .perform(
+                actionOnItemAtPosition<TaskAdapter.TaskViewHolder>(
+                    0,
+                    clickChildViewWithId(R.id.item_task)
+                )
+            )
+        Thread.sleep(500)
+
+        onView(withId(R.id.edit_text_task_title)).perform(clearText(), typeText("Estudar testes de UI1"), closeSoftKeyboard())
+
+        onView(withText("ALTERAR")).perform(click())
+
+        onView(withText("Estudar testes de UI1")).check(matches(isDisplayed()))
+
     }
 }
 
