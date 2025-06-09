@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TaskAdapter(
     private val onTaskChecked: (Task, Boolean) -> Unit,
+    private val onTaskClicked: (Task) -> Unit,
     private val onTaskDeleted: (Task) -> Unit
 ) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(TaskDiffCallback) {
 
@@ -21,6 +22,12 @@ class TaskAdapter(
             binding.checkboxCompleted.isChecked = task.isCompleted
 
             updateStrikeThrough(task.isCompleted)
+
+            binding.root.setOnClickListener {
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    onTaskClicked(getItem(adapterPosition))
+                }
+            }
 
             binding.checkboxCompleted.setOnCheckedChangeListener { _, isChecked ->
                 if (adapterPosition != RecyclerView.NO_POSITION) {
