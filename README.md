@@ -1,10 +1,11 @@
+### Especificações Técnicas ✔️
+- Arquitetura: MVVM + Clean Architecture
 ### Bibiliotecas utilizadas ✔️
-- Room
 - Koin (Injeção de Dependências)
-- Flow
-- Mockk/JUnit/Turbine
-- Expresso
+- Coroutines (Como um padrão de design de simultaneidade para simplificar o código executado de forma assíncrona)
+- Flow (Para programação de estilo reativo (de VM para UI))
 - Navigation
+- Entre outras.
 ### Obs: projeto feito para estudos de testes unitários e de UI.
 
 <img src="https://github.com/user-attachments/assets/9b43c687-f7e6-43a3-adaf-94dfac6f8b22" width="300"/>
