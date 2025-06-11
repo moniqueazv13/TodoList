@@ -16,9 +16,8 @@
 
         <activity
             android:name=".presentation.MainActivity"
-            android:exported="true">  <!-- 'exported="true"' é obrigatório para a activity principal -->
+            android:exported="true">
 
-            <!-- Este filtro de intenção define esta Activity como o ponto de entrada principal do app -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
