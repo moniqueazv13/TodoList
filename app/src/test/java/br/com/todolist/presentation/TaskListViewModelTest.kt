@@ -72,7 +72,7 @@ class TaskListViewModelTest {
 
     @Test
     fun `when addTask is called with a blank title, it should not call the use case`() = runTest {
-        viewModel.addTask("estudar")
+        viewModel.addTask("")
 
         coVerify(exactly = 0) { addTaskUseCase(any()) }
     }
